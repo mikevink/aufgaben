@@ -1,6 +1,7 @@
 # tasks
 text
 tag(s)
+project - like a tag
 due - tomorrow@07:00 #config option, maybe
 added - now()
 completed - now() on completed
@@ -11,7 +12,7 @@ priority
     high    (sweat)
     highest (panic)
 urgency - automatically determined based on priority, due date
-comment
+notes
 progress - dynamic, only if children
 parent
 state
@@ -20,6 +21,24 @@ state
   done
   abandoned
 
+todo: periodic tasks
+
+## task serialisation
+```yaml
+hash:
+  text: goes here
+  state: due
+  dates:
+    added: 2022-02-22 14:44:65 +timezone data
+    due: same
+    done: ditto
+  priority: yawn
+  tags: [bob, bill, murray]
+  notes:
+    - one note here
+    - and another here
+  parent: hash, only if present
+```
 
 
 
@@ -35,8 +54,8 @@ aufgaben [-a/--add] [-p/--priority value] text goes here
 aufgaben [-a/--add] [-t/--tag value] text goes here
 aufgaben [-a/--add] [-t/--tag "multi word value"] text goes here
 aufgaben [-a/--add] [-t/--tag value] [-t/--tag another] text goes here
-aufgaben [-a/--add] [--comment single word comment] # do we need this?
-aufgaben [-a/--add] [--comment "multi word config"] # maybe use 'note' instead, open in vim or whatever, and write there?
+aufgaben [-a/--add] [--note single word comment] # do we need this?
+aufgaben [-a/--add] [--note "multi word config"] # maybe use 'note' instead, open in vim or whatever, and write there?
 aufgaben [-a/--add] [--parent hash]
 ```
 
