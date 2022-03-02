@@ -27,11 +27,8 @@ todo: periodic tasks
 ```yaml
 hash:
   text: goes here
-  state: due
-  dates:
-    added: 2022-02-22 14:44:65 +timezone data
-    due: same
-    done: ditto
+  added: 2022-02-22 14:44:65 +timezone data
+  done: <only present when done>
   priority: yawn
   tags: [bob, bill, murray]
   notes:
@@ -59,9 +56,10 @@ aufgaben [-a/--add] [--note "multi word config"] # maybe use 'note' instead, ope
 aufgaben [-a/--add] [--parent hash]
 ```
 
-# update new task
+# update task
 ```shell
-aufgaben [-u/--update hash] what you have to do goes here
+aufgaben -u/--update hash extra text goes here
+aufgaben -u/--update hash -o[verride] text to override goes here
 and all the other options from add
 ```
 
@@ -73,4 +71,5 @@ aufgaben -l/--list [--order (u)rgency/(d)ue/(a)dded/(s)] [-t/--tag] terms to sea
 
 # flags
 https://github.com/jessevdk/go-flags
+
 https://lightstep.com/blog/getting-real-with-command-line-arguments-and-goflags/
